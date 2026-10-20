@@ -359,6 +359,16 @@ abstract class BaseServerActivity : BaseComponentActivity() {
                     { state.echOutbound = it }
                 )
                 FormTextField(
+                    stringResource(R.string.server_lab_ech_public_name),
+                    state.echPublicName,
+                    { state.echPublicName = it }
+                )
+                FormTextField(
+                    stringResource(R.string.server_lab_ech_decoy_domain),
+                    state.echDecoyDomain,
+                    { state.echDecoyDomain = it }
+                )
+                FormTextField(
                     stringResource(R.string.server_lab_verify_peer_cert_by_name),
                     state.verifyPeerCertByName,
                     { state.verifyPeerCertByName = it }

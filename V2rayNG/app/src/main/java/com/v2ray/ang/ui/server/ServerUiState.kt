@@ -83,6 +83,8 @@ class ServerUiState(
     mldsa65Verify: String = "",
     echConfigList: String = "",
     echOutbound: String = "",
+    echPublicName: String = "",
+    echDecoyDomain: String = "",
     verifyPeerCertByName: String = "",
     pinnedCA256: String = "",
     isFetchingCert: Boolean = false,
@@ -167,6 +169,8 @@ class ServerUiState(
     var mldsa65Verify by mutableStateOf(mldsa65Verify)
     var echConfigList by mutableStateOf(echConfigList)
     var echOutbound by mutableStateOf(echOutbound)
+    var echPublicName by mutableStateOf(echPublicName)
+    var echDecoyDomain by mutableStateOf(echDecoyDomain)
     var verifyPeerCertByName by mutableStateOf(verifyPeerCertByName)
     var pinnedCA256 by mutableStateOf(pinnedCA256)
     var isFetchingCert by mutableStateOf(isFetchingCert)
@@ -323,6 +327,8 @@ class ServerUiState(
             mldsa65Verify = mldsa65Verify,
             echConfigList = echConfigList,
             echOutbound = echOutbound.nullIfBlank(),
+            echPublicName = echPublicName.nullIfBlank(),
+            echDecoyDomain = echDecoyDomain.nullIfBlank(),
             verifyPeerCertByName = verifyPeerCertByName,
             pinnedCA256 = pinnedCA256,
             aetherProtocol = if (isAether) aetherProtocol else null,
@@ -427,6 +433,8 @@ class ServerUiState(
                 mldsa65Verify = initialConfig.mldsa65Verify ?: "",
                 echConfigList = initialConfig.echConfigList ?: "",
                 echOutbound = initialConfig.echOutbound ?: "",
+                echPublicName = initialConfig.echPublicName ?: "",
+                echDecoyDomain = initialConfig.echDecoyDomain ?: "",
                 verifyPeerCertByName = initialConfig.verifyPeerCertByName ?: "",
                 pinnedCA256 = initialConfig.pinnedCA256 ?: "",
                 // Normalized so the dropdowns always hold one of their own values, whatever was persisted.

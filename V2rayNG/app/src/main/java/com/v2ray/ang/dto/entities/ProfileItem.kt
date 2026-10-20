@@ -45,6 +45,8 @@ data class ProfileItem(
     var insecure: Boolean? = null,
     var echConfigList: String? = null,
     var echOutbound: String? = null,
+    var echPublicName: String? = null,
+    var echDecoyDomain: String? = null,
     var verifyPeerCertByName: String? = null,
     var pinnedCA256: String? = null,
 

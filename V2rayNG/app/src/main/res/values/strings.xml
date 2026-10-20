@@ -143,7 +143,9 @@
     <string name="preset_setting_cipher_suites" translatable="false">cipherSuites</string>
     <string name="server_lab_dial_mode" translatable="false">dialMode</string>
     <string name="server_lab_target_strategy" translatable="false">targetStrategy</string>
-    <string name="server_lab_ech_config_list" translatable="false">echConfigList</string>
+    <string name="server_lab_ech_config_list" translatable="false">echConfigList (Base64 / udp:// / tcpfrag:// / https://)</string>
+    <string name="server_lab_ech_public_name" translatable="false">echPublicName Override (e.g. UPPER or custom outer SNI)</string>
+    <string name="server_lab_ech_decoy_domain" translatable="false">echDecoyDomain (e.g. auto or CF decoy domain)</string>
     <string name="server_lab_ech_outbound">echOutbound raw JSON, format: { OutboundObject }</string>
     <string name="toast_ech_outbound_needs_ech_config_list">echOutbound requires echConfigList</string>
     <string name="toast_ech_outbound_invalid_tag">echOutbound needs a \"tag\" that is not empty, not direct or block, and does not start with proxy</string>

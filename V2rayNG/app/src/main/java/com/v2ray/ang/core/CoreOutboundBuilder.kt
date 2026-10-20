@@ -755,7 +755,12 @@ object CoreOutboundBuilder {
             fingerprint = profileItem.fingerPrint.nullIfBlank(),
             alpn = alpnProtocols(profileItem.alpn).takeIf { it.isNotEmpty() },
             cipherSuites = profileItem.cipherSuites.nullIfBlank(),
-            echConfigList = profileItem.echConfigList.nullIfBlank(),
+            echConfigList = profileItem.echConfigList.nullIfBlank()?.let { baseEch ->
+                val meta = mutableListOf<String>()
+                profileItem.echPublicName?.trim()?.takeIf { it.isNotEmpty() }?.let { meta.add("pn=$it") }
+                profileItem.echDecoyDomain?.trim()?.takeIf { it.isNotEmpty() }?.let { meta.add("decoy=$it") }
+                if (meta.isEmpty()) baseEch else "$baseEch#${meta.joinToString("&")}"
+            },
             verifyPeerCertByName = profileItem.verifyPeerCertByName.nullIfBlank(),
             pinnedPeerCertSha256 = profileItem.pinnedCA256.nullIfBlank(),
             publicKey = profileItem.publicKey.nullIfBlank(),
